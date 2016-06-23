@@ -61,6 +61,8 @@ public class Ventana extends javax.swing.JFrame {
         this.jt_Cedula.setText("");
         this.jt_Nombre.setText("");
         this.jt_Edad.setText("");
+        this.Rbtn_Preferencial.setSelected(false);
+        this.Rbtn_Regular.setSelected(false);
     }
     
     public String enviarPrioridad()
@@ -156,6 +158,7 @@ public class Ventana extends javax.swing.JFrame {
         btn_Ingresar.setText("Ingresar");
         getContentPane().add(btn_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);

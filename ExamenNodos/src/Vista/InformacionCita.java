@@ -24,6 +24,7 @@ public class InformacionCita extends javax.swing.JFrame {
         setLocation(400,200);
         setVisible(false);
         agregarEventos();
+        desabilitarEdicion();
     }
     
     public int enviarInformacionEdad()
@@ -49,6 +50,27 @@ public class InformacionCita extends javax.swing.JFrame {
         this.jt_Edad.setText("");
     }
     
+    public void habilitarEdicion()
+    {
+        this.jt_Cedula.setEnabled(false);
+        this.jt_Cita.setEnabled(true);
+        this.jt_Edad.setEnabled(true);
+        this.jt_Nombre.setEnabled(true);
+        this.btn_Eliminar.setEnabled(true);
+        this.btn_Modificar.setEnabled(true);
+        this.btn_Buscar.setEnabled(false);
+    }
+    
+    public void desabilitarEdicion()
+    {
+        this.jt_Cedula.setEnabled(true);
+        this.jt_Cita.setEnabled(false);
+        this.jt_Edad.setEnabled(false);
+        this.jt_Nombre.setEnabled(false);
+        this.btn_Eliminar.setEnabled(false);
+        this.btn_Modificar.setEnabled(false);
+        this.btn_Buscar.setEnabled(true);
+    }
     public void agregarEventos()
     {
         this.btn_Buscar.addActionListener(controlador);

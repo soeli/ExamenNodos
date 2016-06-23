@@ -53,8 +53,8 @@ MetodosNodos metodos;
         
         if(e.getActionCommand().equals("Siguiente"))
         {
-            metodos.eliminarPrimero();
-            ventana.citaActual(metodos.imprimir());
+            //metodos.eliminarPrimero();
+            ventana.citaActual(metodos.eliminarPrimero());
             System.out.println("metodo");
             ventana.imprimirLista(metodos.imprimirLista());
             System.out.println("Siguiente");
@@ -82,6 +82,10 @@ MetodosNodos metodos;
         
         if(e.getActionCommand().equals("Buscar"))
         {
+            if(metodos.verificarCedula(informacionCita.enviarInformacion()))
+            {
+                informacionCita.habilitarEdicion();
+            }
             System.out.println("Buscar");
         }
         if(e.getActionCommand().equals("Modificar"))
@@ -89,6 +93,7 @@ MetodosNodos metodos;
             metodos.modificar(informacionCita.enviarInformacion(), informacionCita.enviarInformacionEdad());
             ventana.imprimirLista(metodos.imprimirLista());
             informacionCita.refresarVentana();
+            informacionCita.desabilitarEdicion();
             System.out.println("Modificar");
         }
         if(e.getActionCommand().equals("Eliminar"))
@@ -96,6 +101,7 @@ MetodosNodos metodos;
             metodos.eliminar(informacionCita.enviarInformacion());
             ventana.imprimirLista(metodos.imprimirLista());
             informacionCita.refresarVentana();
+            informacionCita.desabilitarEdicion();
             System.out.println("Eliminar");
         }
         if(e.getActionCommand().equals("Salir"))

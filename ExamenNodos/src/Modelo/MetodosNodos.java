@@ -91,6 +91,7 @@ public class MetodosNodos {
        
         return texto; 
     }
+ 
     
     public String imprimir()
     {
@@ -102,11 +103,15 @@ public class MetodosNodos {
         return texto;
     }
 
-    public void eliminarPrimero()
+    public String eliminarPrimero()
     {
+        String texto="";
         System.out.print("EliminarPrimero");
             Nodo temporal=cita.getSiguiente();
-            cita=temporal; 
+            cita=temporal;
+            texto=cita.getCita()+" "+cita.getFecha();
+            
+            return texto;
     }
     
   
@@ -166,6 +171,25 @@ public class MetodosNodos {
             }
             temporal=temporal.getSiguiente();
             anterior.setSiguiente(temporal);
+    }
+    
+    public boolean verificarCedula(String arreglo[])
+    {
+        boolean existe=false;
+        Nodo temporal=cita;
+        while(temporal.getSiguiente()!=null)
+        {
+            if(arreglo[0].equals(temporal.getCedula()))
+            {
+                existe=true;
+            }
+            temporal=temporal.getSiguiente();
+        }
+        if(arreglo[0].equals(temporal.getCedula()))
+            {
+                existe=true;
+            }
+        return existe;
     }
     
     public void modificar(String arreglo[], int edad)
